@@ -1,0 +1,11 @@
+.footer {
+  background-color: rgb(190, 196, 217);
+  color: black;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 14px;
+}
