@@ -6,6 +6,8 @@ export default function SchedulePage() {
   const [schedules, setSchedules] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);  // Admin state from localStorage
   const [editFrequency, setEditFrequency] = useState({});
+  const [highestFrequencySchedule, setHighestFrequencySchedule] = useState([]);
+  const [loading, setLoading] = useState(false);  // For loading state
 
   // Fetch schedule data from the backend
   useEffect(() => {
@@ -61,13 +63,32 @@ export default function SchedulePage() {
           delete updated[scheduleId];
           return updated;
         });
-        alert("Frequency saved successfully")
+        alert("Frequency saved successfully");
       } else {
         const errorData = await response.json();
         console.error('Error updating frequency:', errorData.error);
       }
     } catch (error) {
       console.error('Error saving frequency:', error);
+    }
+  };
+
+  // Fetch the schedule with the highest frequency between Kadapa and Jammalamadugu
+  const fetchHighestFrequencySchedule = async () => {
+    setLoading(true);  // Set loading to true while fetching
+    try {
+      const response = await fetch('http://127.0.0.1:5000/schedule/highest-frequency');
+      if (response.ok) {
+        const data = await response.json();
+        setHighestFrequencySchedule(data);
+      } else {
+        const errorData = await response.json();
+        console.error('Error fetching highest frequency schedule:', errorData.error);
+      }
+    } catch (error) {
+      console.error('Error fetching highest frequency schedule:', error);
+    } finally {
+      setLoading(false);  // Set loading to false after the fetch completes
     }
   };
 
@@ -120,6 +141,24 @@ export default function SchedulePage() {
             ))}
           </tbody>
         </table>
+      )}
+      {/* Button to fetch highest frequency schedule */}
+      <button className={styles.fetchButton} onClick={fetchHighestFrequencySchedule} disabled={loading}>
+        {loading ? 'Loading...' : 'Show Highest Frequency Schedule'}
+      </button>
+
+      {/* Display the highest frequency schedule */}
+      {highestFrequencySchedule.length > 0 && (
+        <div className={styles.highestFrequencyContainer}>
+          <h2>Highest Frequency Schedule</h2>
+          <ul>
+            {highestFrequencySchedule.map((schedule) => (
+              <li key={schedule.train_no}>
+                Train No: {schedule.train_no}, Frequency: {schedule.frequency}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

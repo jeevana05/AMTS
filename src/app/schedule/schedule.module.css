@@ -71,3 +71,44 @@
 .saveButton:hover {
   background-color: #45a049;
 }
+.fetchButton {
+  padding: 12px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 20px 0;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.fetchButton:hover {
+  background-color: #0056b3;
+}
+
+.highestFrequencyContainer {
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.highestFrequencyContainer h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.highestFrequencyContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.highestFrequencyContainer li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
