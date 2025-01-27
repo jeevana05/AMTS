@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Automated Metro Transit System
 
-## Getting Started
+## Project Overview
+The Automated Metro Transit System (AMTS) is a database-driven application designed to streamline metro operations, ensuring efficient management of train schedules, ticket bookings, and passenger services. The system supports real-time updates, secure user management, and robust database functionalities to enhance the metro transit experience for passengers and administrators alike.
 
-First, run the development server:
+This project was developed as part of the Mini project for the course DBMS - developed in collaboration with my teammate, Asvith Reddy (@asvithreddy). 
+Our main aim was to make the frequency of arrival and departure of trains at a metro station dynamic, while keeping the basic feature such as ticket booking for passengers and adminstrator functionalities for the admins or staff.  
+> We have created a mini-world ofsorts wherein trains only operate between 2 stations for ease of implementation in the limited time available (Stations' names are just for representational purposes).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features  
+1. **Train Scheduling and Routing:**  
+   - Efficient management of train schedules with arrival and departure times.  
+   - Frequency updates restricted to admin access only.  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. **Ticket Booking and Fare Management:**  
+   - User-friendly booking interface for passengers.  
+   - Dynamic ticket pricing calculation with cancellation and viewing options.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Real-time Train Schedule Viewing:**  
+   - Provides live updates on train statuses and routes.  
 
-## Learn More
+4. **Passenger Information Display:**  
+   - Displays train schedules, availability, and ticket details.  
 
-To learn more about Next.js, take a look at the following resources:
+5. **Admin Privileges:**  
+   - Role-based access for creating schedules, modifying frequencies, and viewing logs.  
+   - Logging system to track ticket bookings and cancellations via database triggers.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technologies Used  
+- **Frontend:** Next JS GUI integrated with CRUD operations  
+- **Backend:** Flask
+- **Database:** MySQL
+- **Tools:** SQL Workbench, Postman (for API testing)  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Enhancements  
+- Integration with a real-time tracking API for live updates.  
+- Advanced reporting and analytics for metro operations.
+- Extension to support the operations between multiple stations.  
+- Mobile application support for enhanced user accessibility.
+  
+---
